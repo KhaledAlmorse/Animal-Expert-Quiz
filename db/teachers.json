@@ -1,0 +1,18 @@
+[
+  {
+    "id": 101,
+    "username": "mr_ahmed",
+    "password": "teacher123",
+    "course": "Mathematics",
+    "mobile": "01234567890",
+    "role": "teacher"
+  },
+  {
+    "id": 102,
+    "username": "ms_mona",
+    "password": "teach456",
+    "course": "Science",
+    "mobile": "01555667788",
+    "role": "teacher"
+  }
+]
