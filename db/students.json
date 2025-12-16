@@ -1,9 +1,13 @@
 [
   {
     "id": 1,
-    "username": "Ahmed Ali",
+    "username": "Khaled Elmorse",
     "password": "123456",
-    "email": "ahmed@mail.com",
+    "email": "khaled@mail.com",
+    "mobile": "01012345678",
+    "grade": "Grade 1",
+    "role": "student",
+    "profileImage": "../assets/images/Khaled Elmorse Manea.jpg",
     "assignedExams": [1],
     "completedExams": [
       {
@@ -25,6 +29,9 @@
     "username": "Sara Mohamed",
     "password": "123456",
     "email": "sara@mail.com",
+    "mobile": "01023456789",
+    "grade": "Grade 2",
+    "role": "student",
     "assignedExams": [1],
     "completedExams": []
   },
@@ -33,6 +40,9 @@
     "username": "Omar Hassan",
     "password": "123456",
     "email": "omar@mail.com",
+    "mobile": "01034567890",
+    "grade": "Grade 3",
+    "role": "student",
     "assignedExams": [1],
     "completedExams": [
       {
@@ -54,6 +64,9 @@
     "username": "Mona Adel",
     "password": "123456",
     "email": "mona@mail.com",
+    "mobile": "01045678901",
+    "grade": "Grade 1",
+    "role": "student",
     "assignedExams": [1],
     "completedExams": []
   },
@@ -62,6 +75,9 @@
     "username": "Youssef Ibrahim",
     "password": "123456",
     "email": "youssef@mail.com",
+    "mobile": "01056789012",
+    "grade": "Grade 2",
+    "role": "student",
     "assignedExams": [1],
     "completedExams": [
       {

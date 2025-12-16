@@ -13,7 +13,7 @@ if (!student) {
   alert("Please login first!");
   window.location.href = "login.html";
 } else {
-  profileImage.src = student.profileImage || "img/placeholder.png";
+  profileImage.src = student.profileImage || "../assets/images/placeholder.png";
 
   studentName.textContent = student.username;
   gradeInfo.textContent = `Grade: ${student.grade}`;

@@ -5,7 +5,8 @@
     "password": "admin123",
     "email": "sayed@mail.com",
     "specialization": "JavaScript",
-    "createdExams": [1]
+    "createdExams": [1],
+    "role": "teacher"
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "password": "admin123",
     "email": "salma@mail.com",
     "specialization": "HTML & CSS",
-    "createdExams": []
+    "createdExams": [],
+    "role": "teacher"
   },
   {
     "id": 3,
@@ -21,6 +23,7 @@
     "password": "admin123",
     "email": "ahmed@mail.com",
     "specialization": "Programming Basics",
-    "createdExams": []
+    "createdExams": [],
+    "role": "teacher"
   }
 ]
