@@ -1,18 +1,26 @@
 [
   {
-    "id": 101,
-    "username": "mr_ahmed",
-    "password": "teacher123",
-    "course": "Mathematics",
-    "mobile": "01234567890",
-    "role": "teacher"
+    "id": 1,
+    "username": "mr_sayed",
+    "password": "admin123",
+    "email": "sayed@mail.com",
+    "specialization": "JavaScript",
+    "createdExams": [1]
   },
   {
-    "id": 102,
-    "username": "ms_mona",
-    "password": "teach456",
-    "course": "Science",
-    "mobile": "01555667788",
-    "role": "teacher"
+    "id": 2,
+    "username": "ms_salma",
+    "password": "admin123",
+    "email": "salma@mail.com",
+    "specialization": "HTML & CSS",
+    "createdExams": []
+  },
+  {
+    "id": 3,
+    "username": "mr_ahmed",
+    "password": "admin123",
+    "email": "ahmed@mail.com",
+    "specialization": "Programming Basics",
+    "createdExams": []
   }
 ]

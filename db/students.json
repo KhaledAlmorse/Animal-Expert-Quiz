@@ -1,22 +1,81 @@
 [
   {
     "id": 1,
-    "username": "khaled123",
-    "email": "khaled123@mail.com",
+    "username": "Ahmed Ali",
     "password": "123456",
-    "grade": 2,
-    "mobile": "01012345678",
-    "profileImage": "img/placeholder.png",
-    "role": "student"
+    "email": "ahmed@mail.com",
+    "assignedExams": [1],
+    "completedExams": [
+      {
+        "examId": 1,
+        "score": 85,
+        "submittedAt": "2025-01-10",
+        "answers": [
+          {
+            "questionId": 1,
+            "selected": 1,
+            "correct": true
+          }
+        ]
+      }
+    ]
   },
   {
     "id": 2,
-    "username": "sara_ali",
-    "email": "sara_ali@mail.com",
-    "password": "password789",
-    "grade": 1,
-    "mobile": "01198765432",
-    "profileImage": "img/placeholder.png",
-    "role": "student"
+    "username": "Sara Mohamed",
+    "password": "123456",
+    "email": "sara@mail.com",
+    "assignedExams": [1],
+    "completedExams": []
+  },
+  {
+    "id": 3,
+    "username": "Omar Hassan",
+    "password": "123456",
+    "email": "omar@mail.com",
+    "assignedExams": [1],
+    "completedExams": [
+      {
+        "examId": 1,
+        "score": 72,
+        "submittedAt": "2025-01-11",
+        "answers": [
+          {
+            "questionId": 1,
+            "selected": 0,
+            "correct": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "username": "Mona Adel",
+    "password": "123456",
+    "email": "mona@mail.com",
+    "assignedExams": [1],
+    "completedExams": []
+  },
+  {
+    "id": 5,
+    "username": "Youssef Ibrahim",
+    "password": "123456",
+    "email": "youssef@mail.com",
+    "assignedExams": [1],
+    "completedExams": [
+      {
+        "examId": 1,
+        "score": 93,
+        "submittedAt": "2025-01-12",
+        "answers": [
+          {
+            "questionId": 1,
+            "selected": 1,
+            "correct": true
+          }
+        ]
+      }
+    ]
   }
 ]

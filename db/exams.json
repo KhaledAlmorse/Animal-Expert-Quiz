@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "title": "JavaScript Basics",
+    "teacherId": 1,
+    "totalTime": 900,
+    "questionTime": 60,
+    "totalScore": 100,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is JavaScript?",
+        "difficulty": "easy",
+        "score": 5,
+        "choices": [
+          "A markup language",
+          "A programming language",
+          "A database",
+          "An OS"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": 2,
+        "text": "Which keyword declares a variable?",
+        "difficulty": "easy",
+        "score": 5,
+        "choices": ["var", "int", "string", "define"],
+        "correctAnswer": 0
+      }
+    ],
+    "assignedStudents": [1, 2, 3],
+    "results": [
+      {
+        "studentId": 1,
+        "score": 85,
+        "submittedAt": "2025-01-10"
+      },
+      {
+        "studentId": 3,
+        "score": 72,
+        "submittedAt": "2025-01-11"
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "title": "HTML Fundamentals",
+    "teacherId": 2,
+    "totalTime": 600,
+    "questionTime": 45,
+    "totalScore": 100,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What does HTML stand for?",
+        "difficulty": "easy",
+        "score": 10,
+        "choices": [
+          "Hyper Text Markup Language",
+          "High Text Machine Language",
+          "Hyperlinks Text Mark Language",
+          "Home Tool Markup Language"
+        ],
+        "correctAnswer": 0
+      },
+      {
+        "id": 2,
+        "text": "Which tag creates a hyperlink?",
+        "difficulty": "easy",
+        "score": 10,
+        "choices": ["<a>", "<link>", "<href>", "<url>"],
+        "correctAnswer": 0
+      }
+    ],
+    "assignedStudents": [2, 4, 5],
+    "results": [
+      {
+        "studentId": 5,
+        "score": 93,
+        "submittedAt": "2025-01-12"
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "title": "Programming Basics",
+    "teacherId": 3,
+    "totalTime": 750,
+    "questionTime": 50,
+    "totalScore": 100,
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is a variable?",
+        "difficulty": "easy",
+        "score": 10,
+        "choices": [
+          "A fixed value",
+          "A container for data",
+          "A function",
+          "A loop"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "id": 2,
+        "text": "Which of these is a loop?",
+        "difficulty": "easy",
+        "score": 10,
+        "choices": ["if", "switch", "for", "break"],
+        "correctAnswer": 2
+      }
+    ],
+    "assignedStudents": [1, 3, 4],
+    "results": []
+  }
+]
