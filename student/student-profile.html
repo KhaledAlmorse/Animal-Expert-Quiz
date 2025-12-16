@@ -10,7 +10,7 @@
 
   <body class="h-full text-white">
     <div class="min-h-full px-6 py-10 lg:px-8">
-      <!-- Header -->
+      <!-- ================= Header ================= -->
       <div class="mx-auto max-w-4xl">
         <div class="flex items-center gap-6 bg-white/5 p-6 rounded-xl shadow">
           <!-- Profile Image -->
@@ -30,19 +30,25 @@
         </div>
       </div>
 
-      <!-- Content -->
+      <!-- ================= Personal + Settings ================= -->
       <div
         class="mx-auto mt-10 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <!-- Personal Info -->
-        <div class="bg-white/5 rounded-xl p-6 shadow" id="personalInfo">
+        <div class="bg-white/5 rounded-xl p-6 shadow">
           <h3 class="text-lg font-semibold mb-4 text-indigo-400">
             Personal Information
           </h3>
 
           <div id="personalDetails" class="space-y-3 text-gray-300">
-            <p><span class="text-gray-400">Email:</span> student@email.com</p>
-            <p><span class="text-gray-400">Mobile:</span> 01XXXXXXXXX</p>
+            <p>
+              <span class="text-gray-400">Email:</span>
+              student@email.com
+            </p>
+            <p>
+              <span class="text-gray-400">Mobile:</span>
+              01XXXXXXXXX
+            </p>
           </div>
         </div>
 
@@ -52,24 +58,80 @@
             Account Settings
           </h3>
 
-          <div class="space-y-4">
-            <button
-              id="editProfileBtn"
-              class="w-full rounded-md bg-indigo-500 py-2 font-semibold hover:bg-indigo-400 transition"
+          <button
+            id="logoutBtn"
+            class="w-full rounded-md border border-red-500 text-red-400 py-2 font-semibold hover:bg-red-500 hover:text-white transition"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= Exams Section ================= -->
+      <div
+        class="mx-auto mt-10 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
+        <!-- Upcoming Exams -->
+        <div class="bg-white/5 rounded-2xl p-6 shadow">
+          <div class="flex items-center gap-3 mb-5">
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-500/20 text-indigo-400"
             >
-              Edit Profile
-            </button>
+              📅
+            </div>
+            <h3 class="text-lg font-semibold">Upcoming Exams</h3>
+          </div>
+
+          <div
+            class="flex items-center justify-between bg-indigo-500/10 rounded-xl p-4"
+          >
+            <div>
+              <h4 class="font-semibold text-indigo-300">Ocean Animals</h4>
+              <p class="text-sm text-gray-400">20 minutes • 15 questions</p>
+            </div>
 
             <button
-              id="logoutBtn"
-              class="w-full rounded-md border border-red-500 text-red-400 py-2 font-semibold hover:bg-red-500 hover:text-white transition"
+              class="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold hover:bg-indigo-400 transition"
+              id="start"
             >
-              Logout
+              Start
+            </button>
+          </div>
+        </div>
+
+        <!-- Completed Exams -->
+        <div class="bg-white/5 rounded-2xl p-6 shadow">
+          <div class="flex items-center gap-3 mb-5">
+            <div
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/20 text-green-400"
+            >
+              🏆
+            </div>
+            <h3 class="text-lg font-semibold">Completed Exams</h3>
+          </div>
+
+          <div
+            class="flex items-center justify-between bg-green-500/10 rounded-xl p-4"
+          >
+            <div>
+              <h4 class="font-semibold text-green-300">
+                Animal Kingdom Basics
+              </h4>
+              <p class="text-sm text-gray-400">Score: 85 / 100</p>
+              <p class="text-xs text-gray-500">12 / 8 / 2024</p>
+            </div>
+
+            <button
+              class="rounded-lg border border-green-500 px-4 py-2 text-sm font-semibold text-green-400 hover:bg-green-500 hover:text-white transition"
+              id="view"
+            >
+              View
             </button>
           </div>
         </div>
       </div>
     </div>
+
     <script src="student.js"></script>
   </body>
 </html>

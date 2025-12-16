@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Take Exam</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body
+    class="min-h-full text-white flex items-center justify-center px-4 py-8"
+  >
+    <div
+      class="w-full max-w-3xl bg-gray-800 rounded-3xl shadow-2xl p-6 space-y-6"
+    >
+      <!-- ================= Timer ================= -->
+      <div class="bg-gray-700 rounded-xl p-4 space-y-4">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2 text-sm text-gray-300">
+            ⏱ Time Remaining
+          </div>
+          <span class="font-semibold text-white">19:46</span>
+        </div>
+        <div class="h-2 w-full bg-gray-600 rounded-full overflow-hidden">
+          <div class="h-full w-[85%] bg-indigo-500 rounded-full"></div>
+        </div>
+
+        <!-- ================= Image Section ================= -->
+        <div class="mt-4 w-full flex justify-center">
+          <img
+            src="../assets/images/images.jpg"
+            alt="Question Image"
+            class="rounded-2xl shadow-lg object-cover w-full max-w-md h-48 sm:h-64 border border-gray-600"
+          />
+        </div>
+      </div>
+
+      <!-- ================= Question ================= -->
+      <div class="bg-gray-700 rounded-2xl p-6 space-y-5">
+        <!-- Question Text -->
+        <h2 class="text-lg font-semibold text-white">
+          Which animal is known as the smartest sea creature?
+        </h2>
+
+        <!-- ================= Options ================= -->
+        <div class="space-y-4">
+          <!-- Option A -->
+          <button
+            class="w-full flex items-center gap-4 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-left hover:bg-gray-700 transition"
+          >
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white font-bold"
+            >
+              A
+            </span>
+            <span class="font-medium text-white">Dolphin</span>
+          </button>
+
+          <!-- Option B -->
+          <button
+            class="w-full flex items-center gap-4 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-left hover:bg-gray-700 transition"
+          >
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white font-bold"
+            >
+              B
+            </span>
+            <span class="font-medium text-white">Shark</span>
+          </button>
+
+          <!-- Option C -->
+          <button
+            class="w-full flex items-center gap-4 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-left hover:bg-gray-700 transition"
+          >
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white font-bold"
+            >
+              C
+            </span>
+            <span class="font-medium text-white">Whale</span>
+          </button>
+
+          <!-- Option D -->
+          <button
+            class="w-full flex items-center gap-4 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-left hover:bg-gray-700 transition"
+          >
+            <span
+              class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white font-bold"
+            >
+              D
+            </span>
+            <span class="font-medium text-white">Seal</span>
+          </button>
+        </div>
+
+        <!-- ================= Next Button ================= -->
+        <button
+          class="mt-6 w-full rounded-2xl bg-indigo-600 py-3 text-white font-semibold hover:bg-indigo-500 transition flex items-center justify-center gap-2 shadow-lg"
+        >
+          Next Question →
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

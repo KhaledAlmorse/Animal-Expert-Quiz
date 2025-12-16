@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       localStorage.setItem(database, JSON.stringify(data));
     }
   }
+  loadJSON();
 
   function getItems(database) {
     return JSON.parse(localStorage.getItem(database)) || [];

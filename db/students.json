@@ -32,6 +32,8 @@
     "mobile": "01023456789",
     "grade": "Grade 2",
     "role": "student",
+    "profileImage": "../assets/images/Khaled Elmorse Manea.jpg",
+
     "assignedExams": [1],
     "completedExams": []
   },
@@ -43,6 +45,8 @@
     "mobile": "01034567890",
     "grade": "Grade 3",
     "role": "student",
+    "profileImage": "../assets/images/Khaled Elmorse Manea.jpg",
+
     "assignedExams": [1],
     "completedExams": [
       {
@@ -67,6 +71,8 @@
     "mobile": "01045678901",
     "grade": "Grade 1",
     "role": "student",
+    "profileImage": "../assets/images/Khaled Elmorse Manea.jpg",
+
     "assignedExams": [1],
     "completedExams": []
   },

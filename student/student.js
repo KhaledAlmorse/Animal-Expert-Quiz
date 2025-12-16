@@ -29,3 +29,15 @@ logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("currentStudent");
   window.location.href = "../auth/login.html";
 });
+
+const viewbtn = document.getElementById("view");
+
+viewbtn.addEventListener("click", () => {
+  window.location.href = "../student/result.html";
+});
+
+const startntn = document.getElementById("start");
+
+startntn.addEventListener("click", () => {
+  window.location.href = "../student/take-exam.html";
+});
