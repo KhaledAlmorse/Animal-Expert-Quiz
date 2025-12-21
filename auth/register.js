@@ -1,54 +1,91 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  async function loadJSON(database) {
-    if (!localStorage.getItem(database)) {
-      const res = await fetch(`../db/${database}.json`);
-      const data = await res.json();
-      localStorage.setItem(database, JSON.stringify(data));
+import StorageService from "../utils/storage.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  new RegisterController();
+});
+
+/* ================== Student Service ================== */
+class StudentService {
+  constructor() {
+    this.students = StorageService.get("students");
+  }
+
+  addStudent(student) {
+    student.id = this.generateId();
+    this.students.push(student);
+    StorageService.set("students", this.students);
+    StorageService.set("currentStudent", student);
+  }
+
+  generateId() {
+    return this.students.length
+      ? this.students[this.students.length - 1].id + 1
+      : 1;
+  }
+}
+
+/* ================== Register Controller ================== */
+class RegisterController {
+  constructor() {
+    this.form = document.getElementById("registerForm");
+    this.fileInput = document.querySelector("input[type=file]");
+    this.profileBase64 = "";
+
+    if (!this.form) {
+      console.error("Register form not found");
+      return;
     }
-  }
-  loadJSON();
 
-  function getItems(database) {
-    return JSON.parse(localStorage.getItem(database)) || [];
+    this.init();
   }
 
-  await loadJSON("students");
-  let students = getItems("students");
-
-  const form = document.getElementById("registerForm");
-  const fileInput = document.querySelector("input[type=file]");
-
-  if (!form) {
-    console.error("Register form not found");
-    return;
+  async init() {
+    await StorageService.loadJSON("students");
+    this.studentService = new StudentService();
+    this.setupImagePreview();
+    this.bindEvents();
   }
 
-  let profileBase64 = "";
+  setupImagePreview() {
+    if (!this.fileInput) return;
 
-  if (fileInput) {
-    const preview = document.createElement("img");
-    preview.style.width = "100px";
-    preview.style.height = "100px";
-    preview.style.display = "none";
-    preview.style.marginTop = "10px";
-    fileInput.parentElement.appendChild(preview);
+    this.preview = document.createElement("img");
+    this.preview.style.width = "100px";
+    this.preview.style.height = "100px";
+    this.preview.style.display = "none";
+    this.preview.style.marginTop = "10px";
 
-    fileInput.addEventListener("change", () => {
-      const file = fileInput.files[0];
+    this.fileInput.parentElement.appendChild(this.preview);
+
+    this.fileInput.addEventListener("change", () => {
+      const file = this.fileInput.files[0];
       if (!file) return;
 
       const reader = new FileReader();
       reader.onload = () => {
-        profileBase64 = reader.result;
-        preview.src = profileBase64;
+        this.profileBase64 = reader.result;
+        this.preview.src = this.profileBase64;
+        this.preview.style.display = "block";
       };
       reader.readAsDataURL(file);
     });
   }
 
-  form.addEventListener("submit", (e) => {
+  bindEvents() {
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
 
+    const student = this.getFormData();
+    if (!student) return;
+
+    this.studentService.addStudent(student);
+    window.location.href = "../student/student-profile.html";
+  }
+
+  getFormData() {
     const username = document.querySelector("input[type=text]").value.trim();
     const email = document.querySelector("input[type=email]").value.trim();
     const password = document
@@ -59,26 +96,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!username || !email || !password || !grade || !mobile) {
       alert("Please fill all fields!");
-      return;
+      return null;
     }
 
-    const newStudent = {
-      id: students.length ? students[students.length - 1].id + 1 : 1,
+    return {
       username,
       email,
       password,
       mobile,
       grade,
       role: "student",
-      profileImage: profileBase64,
+      profileImage: this.profileBase64,
       assignedExams: [],
       completedExams: [],
     };
-
-    students.push(newStudent);
-    localStorage.setItem("students", JSON.stringify(students));
-    localStorage.setItem("currentStudent", JSON.stringify(newStudent));
-
-    window.location.href = "../student/student-profile.html";
-  });
-});
+  }
+}

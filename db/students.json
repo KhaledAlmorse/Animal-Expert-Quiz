@@ -8,19 +8,14 @@
     "grade": "Grade 1",
     "role": "student",
     "profileImage": "../assets/images/Khaled Elmorse Manea.jpg",
-    "assignedExams": [1],
+    "assignedExams": [1, 2, 3],
     "completedExams": [
       {
-        "examId": 1,
+        "examId": 5,
+        "examName": "Css Exam",
         "score": 85,
-        "submittedAt": "2025-01-10",
-        "answers": [
-          {
-            "questionId": 1,
-            "selected": 1,
-            "correct": true
-          }
-        ]
+        "total": 100,
+        "date": "2025-01-10"
       }
     ]
   },

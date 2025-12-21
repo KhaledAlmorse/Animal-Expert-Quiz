@@ -20,70 +20,31 @@
           >
             🏆
           </div>
-          <h2 class="mt-3 text-lg font-semibold">Excellent Work 🎉</h2>
+          <h2 id="resultMessage" class="mt-3 text-lg font-semibold">
+            Loading...
+          </h2>
         </div>
 
         <!-- Score -->
         <div class="bg-indigo-500/10 rounded-xl py-6 text-center">
-          <p class="text-4xl font-bold text-indigo-300">85</p>
-          <p class="text-sm text-gray-400">out of 100 points</p>
+          <p id="score" class="text-4xl font-bold text-indigo-300">0</p>
+          <p id="total" class="text-sm text-gray-400">out of 0 points</p>
         </div>
 
         <!-- Stats -->
         <div class="grid grid-cols-2 gap-4">
           <div class="rounded-xl bg-green-500/10 p-4 text-center">
             <div class="text-green-400 text-xl">✔</div>
-            <p class="mt-1 text-sm text-gray-300">10 Correct</p>
+            <p id="correctCount" class="mt-1 text-sm text-gray-300">
+              0 Correct
+            </p>
           </div>
 
           <div class="rounded-xl bg-red-500/10 p-4 text-center">
             <div class="text-red-400 text-xl">✖</div>
-            <p class="mt-1 text-sm text-gray-300">5 Incorrect</p>
-          </div>
-        </div>
-
-        <!-- Question Summary -->
-        <div>
-          <h3 class="mb-3 text-sm font-semibold text-indigo-400">
-            Question Summary
-          </h3>
-
-          <div class="max-h-40 overflow-y-auto space-y-2 pr-1">
-            <!-- Question -->
-            <div
-              class="flex items-center justify-between rounded-lg bg-red-500/10 px-3 py-2"
-            >
-              <span class="text-sm">❌ Question 1</span>
-              <span class="text-xs text-gray-400"> 17s • 5 pts </span>
-            </div>
-
-            <div
-              class="flex items-center justify-between rounded-lg bg-green-500/10 px-3 py-2"
-            >
-              <span class="text-sm">✔ Question 2</span>
-              <span class="text-xs text-gray-400"> 35s • 5 pts </span>
-            </div>
-
-            <div
-              class="flex items-center justify-between rounded-lg bg-green-500/10 px-3 py-2"
-            >
-              <span class="text-sm">✔ Question 3</span>
-              <span class="text-xs text-gray-400"> 14s • 10 pts </span>
-            </div>
-
-            <div
-              class="flex items-center justify-between rounded-lg bg-red-500/10 px-3 py-2"
-            >
-              <span class="text-sm">❌ Question 4</span>
-              <span class="text-xs text-gray-400"> 37s • 5 pts </span>
-            </div>
-
-            <div
-              class="flex items-center justify-between rounded-lg bg-green-500/10 px-3 py-2"
-            >
-              <span class="text-sm">✔ Question 5</span>
-              <span class="text-xs text-gray-400"> 16s • 10 pts </span>
-            </div>
+            <p id="incorrectCount" class="mt-1 text-sm text-gray-300">
+              0 Incorrect
+            </p>
           </div>
         </div>
 
@@ -103,5 +64,7 @@
         </button>
       </div>
     </div>
+
+    <script src="result.js"></script>
   </body>
 </html>

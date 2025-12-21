@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Completed Exams</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="text-white min-h-screen p-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="relative flex items-center mb-8">
+        <!-- Back -->
+        <a
+          href="student-profile.html"
+          class="text-sm md:text-base text-indigo-400 hover:underline absolute left-0"
+        >
+          ← Back to Profile
+        </a>
+
+        <!-- Title -->
+        <h2 class="mx-auto text-3xl md:text-4xl font-bold text-green-400">
+          Completed Exams
+        </h2>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto bg-white/5 rounded-xl shadow">
+        <table class="min-w-full text-sm">
+          <thead class="bg-white/10 text-gray-300">
+            <tr>
+              <th class="px-6 py-3 text-left">Exam ID</th>
+              <th class="px-6 py-3 text-left">Exam Name</th>
+              <th class="px-6 py-3 text-left">Score</th>
+              <th class="px-6 py-3 text-left">Date</th>
+            </tr>
+          </thead>
+
+          <tbody id="examTableBody" class="divide-y divide-white/10">
+            <!-- Rows will be injected here dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="completed-exam.js"></script>
+  </body>
+</html>
