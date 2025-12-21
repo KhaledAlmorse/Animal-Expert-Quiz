@@ -66,7 +66,7 @@ document.getElementById("saveAssign").addEventListener("click", () => {
   });
 
   localStorage.setItem("exams", JSON.stringify(exams));
-  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("students", JSON.stringify(users));
 
   alert("Students assigned successfully!");
 });

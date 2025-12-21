@@ -168,18 +168,21 @@
         "correctAnswer": 2
       }
     ],
-    "assignedStudents": [1, 2, 3],
+    "assignedStudents": [1],
     "results": [
       {
         "studentId": 1,
         "score": 85,
-        "submittedAt": "2025-01-10"
+        "submittedAt": "2025-01-15",
+        "answers": [
+          {
+            "questionId": 1,
+            "selected": 1,
+            "correct": true
+          }
+        ]
       },
-      {
-        "studentId": 3,
-        "score": 72,
-        "submittedAt": "2025-01-11"
-      }
+      
     ]
   },
   {
