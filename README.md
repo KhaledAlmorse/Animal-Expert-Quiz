@@ -7,7 +7,7 @@ To install the required dependencies and get the project running locally, execut
 npm install
 ```
 
-#🔐 Login Credentials
+# 🔐 Login Credentials
 
 ## You can access the platform using the following pre-configured accounts:
 
@@ -25,7 +25,7 @@ npm install
 
 ## Note: Alternatively, you can register a new account through the signup page.
 
-$ 👥 Our Team
+# 👥 Our Team
 
 - Ahmed Wael	ahmedwaelmujahid@gmail.com
 
