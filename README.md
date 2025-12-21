@@ -7,25 +7,25 @@ To install the required dependencies and get the project running locally, execut
 npm install
 ```
 
-# 🔐 Login Credentials
+## 🔐 Login Credentials
 
-## You can access the platform using the following pre-configured accounts:
+### You can access the platform using the following pre-configured accounts:
 
-## Teacher Dashboard
+### Teacher Dashboard
 
 - Email: sayed@mail.com
 
 - Password: admin123
 
-## Student Account
+### Student Account
 
 - Email: khaled@mail.com
 
 - Password: 123456
 
-## Note: Alternatively, you can register a new account through the signup page.
+### Note: Alternatively, you can register a new account through the signup page.
 
-# 👥 Our Team
+## 👥 Our Team
 
 - Ahmed Wael	ahmedwaelmujahid@gmail.com
 
