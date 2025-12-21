@@ -66,13 +66,13 @@ class LoginController {
   async redirectUser(role, user) {
     if (role === "student") {
       await StorageService.loadJSON("exams");
-      StorageService.set("currentStudentId", user.id);
+      StorageService.set("currentStudent", user);
       window.location.href = "../../student/view/student-profile.html";
       return;
     }
 
     if (role === "teacher") {
-      StorageService.set("currentTeacherId", user.id);
+      StorageService.set("currentTeacher", user);
       window.location.href = "../../teacher/views/teacher-dashboard.html";
     }
   }

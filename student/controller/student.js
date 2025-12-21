@@ -7,18 +7,13 @@ const logoutBtn = document.getElementById("logoutBtn");
 const upcomingExamsDiv = document.getElementById("upcomingExams");
 const completedExamsDiv = document.getElementById("completedExams");
 
+const student = JSON.parse(localStorage.getItem("currentStudent"));
 const exams = JSON.parse(localStorage.getItem("exams") || "[]");
 
-const studentId = Number(localStorage.getItem("currentStudentId"));
-const users = JSON.parse(localStorage.getItem("students")) || [];
-
-const student = users.find(u => u.id === studentId);
-
 if (!student) {
-  alert("Please login again");
+  alert("Please login first!");
   window.location.href = "../auth/view/login.html";
 }
-
 
 function renderStudentInfo() {
   profileImage.src = student.profileImage || "../assets/images/placeholder.png";
@@ -114,7 +109,7 @@ completedExamsDiv.addEventListener("click", (e) => {
 });
 
 logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("currentStudentId");
+  localStorage.removeItem("currentStudent");
   window.location.href = "../../auth/view/login.html";
 });
 
