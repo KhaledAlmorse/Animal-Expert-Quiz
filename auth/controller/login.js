@@ -1,10 +1,9 @@
-import StorageService from "../utils/storage.js";
+import StorageService from "../../utils/storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   new LoginController();
 });
 
-/* ================= Auth Service ================= */
 class AuthService {
   async login(role, email, password) {
     await StorageService.loadJSON(role + "s");
@@ -17,7 +16,6 @@ class AuthService {
   }
 }
 
-/* ================= Login Controller ================= */
 class LoginController {
   constructor() {
     this.form = document.getElementById("loginForm");
@@ -33,6 +31,7 @@ class LoginController {
 
   bindEvents() {
     this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+    console.log("Form submitted");
   }
 
   async handleSubmit(e) {
@@ -68,13 +67,13 @@ class LoginController {
     if (role === "student") {
       await StorageService.loadJSON("exams");
       StorageService.set("currentStudent", user);
-      window.location.href = "../student/student-profile.html";
+      window.location.href = "../../student/view/student-profile.html";
       return;
     }
 
     if (role === "teacher") {
       StorageService.set("currentTeacher", user);
-      window.location.href = "../teacher/teacher-dashboard.html";
+      window.location.href = "../teacher/views/teacher-dashboard.html";
     }
   }
 }

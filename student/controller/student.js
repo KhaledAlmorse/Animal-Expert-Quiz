@@ -1,4 +1,3 @@
-// ===== Get DOM Elements =====
 const profileImage = document.getElementById("profileImage");
 const studentName = document.getElementById("studentName");
 const gradeInfo = document.getElementById("gradeInfo");
@@ -8,7 +7,6 @@ const logoutBtn = document.getElementById("logoutBtn");
 const upcomingExamsDiv = document.getElementById("upcomingExams");
 const completedExamsDiv = document.getElementById("completedExams");
 
-// ===== Get Data Safely =====
 const student = JSON.parse(localStorage.getItem("currentStudent") || "null");
 const exams = JSON.parse(localStorage.getItem("exams") || "[]");
 
@@ -17,9 +15,9 @@ if (!student) {
   window.location.href = "login.html";
 }
 
-// ===== Helper Functions =====
 function renderStudentInfo() {
-  profileImage.src = student.profileImage || "../assets/images/placeholder.png";
+  profileImage.src =
+    student.profileImage || "../../assets/images/Khaled Elmorse Manea.jpg";
   studentName.textContent = student.username;
   gradeInfo.textContent = `Grade: ${student.grade}`;
   roleInfo.textContent = `Role: ${student.role}`;
@@ -65,12 +63,10 @@ function renderCompletedExams() {
   completedExamsDiv.innerHTML = "";
 
   if (student.completedExams?.length > 0) {
-    // عرض عنوان واحد
     const title = document.createElement("h3");
     title.className = "text-green-300 font-semibold mb-3";
     completedExamsDiv.appendChild(title);
 
-    // زر واحد بعرض كامل
     const viewBtn = document.createElement("button");
     viewBtn.className =
       "view-result-btn w-full rounded-md border border-green-500 text-green-400 px-4 py-2 font-semibold hover:bg-green-500 hover:text-white transition";
@@ -82,16 +78,14 @@ function renderCompletedExams() {
   }
 }
 
-// ===== Initial Render =====
 renderStudentInfo();
 renderUpcomingExams();
 renderCompletedExams();
 
-// ===== Event Delegation =====
 upcomingExamsDiv.addEventListener("click", (e) => {
   if (e.target.classList.contains("start-exam-btn")) {
     localStorage.setItem("currentExamId", e.target.dataset.examId);
-    window.location.href = "../student/take-exam.html";
+    window.location.href = "../view/take-exam.html";
   }
 });
 
@@ -99,12 +93,11 @@ completedExamsDiv.addEventListener("click", (e) => {
   if (e.target.classList.contains("view-result-btn")) {
     const examResult = student.completedExams[e.target.dataset.examIndex];
     localStorage.setItem("examResult", JSON.stringify(examResult));
-    window.location.href = "../student/completed-exams.html";
+    window.location.href = "../view/completed-exams.html";
   }
 });
 
-// ===== Logout =====
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("currentStudent");
-  window.location.href = "../auth/login.html";
+  window.location.href = "../../auth/view/login.html";
 });

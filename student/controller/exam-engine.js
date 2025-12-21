@@ -1,6 +1,6 @@
-import StorageService from "../utils/storage.js";
-import ExamTimer from "../utils/timer.js";
-import RandomService from "../utils/random.js";
+import StorageService from "../../utils/storage.js";
+import ExamTimer from "../../utils/timer.js";
+import RandomService from "../../utils/random.js";
 
 let currentQuestionIndex = 0;
 let selectedAnswer = null;
@@ -8,23 +8,19 @@ let score = 0;
 let exam;
 let timer;
 
-// ===== Initialize Exam =====
 async function initExam() {
   await StorageService.loadJSON("exams");
 
   const exams = StorageService.get("exams") || [];
   const examId = parseInt(localStorage.getItem("currentExamId"));
 
-  // اختر الامتحان الصحيح حسب ID
   exam = exams.find((e) => e.id === examId);
 
   if (!exam) {
     alert("Exam not found!");
-    window.location.href = "dashboard.html";
     return;
   }
 
-  // 🔀 Shuffle الأسئلة والإجابات
   exam = RandomService.shuffleExam(exam);
   StorageService.set("currentExam", exam);
 
@@ -34,7 +30,6 @@ async function initExam() {
   renderQuestion();
 }
 
-// ===== Render Question =====
 function renderQuestion() {
   const question = exam.questions[currentQuestionIndex];
 
@@ -43,7 +38,6 @@ function renderQuestion() {
   const imageContainer = document.getElementById("imageContainer");
   const questionImage = document.getElementById("questionImage");
 
-  // عرض الصورة لو موجودة
   if (question.image) {
     questionImage.src = question.image;
     imageContainer.classList.remove("hidden");
@@ -86,11 +80,11 @@ function renderQuestion() {
   updateNextButton();
 }
 
-// ===== Handle Answer =====
 function handleAnswer(btn, index, question) {
   if (selectedAnswer !== null) return;
 
   selectedAnswer = index;
+  question.selectedAnswer = index; // حفظ الاختيار في السؤال نفسه
 
   const questionScore = question.score || 1;
 
@@ -106,7 +100,6 @@ function handleAnswer(btn, index, question) {
   }
 }
 
-// ===== Update Next Button Text =====
 function updateNextButton() {
   const nextBtn = document.getElementById("nextBtn");
   nextBtn.textContent =
@@ -115,7 +108,6 @@ function updateNextButton() {
       : "Next Question →";
 }
 
-// ===== Next Button Click =====
 document.getElementById("nextBtn").onclick = () => {
   if (selectedAnswer === null) {
     alert("Choose an answer first");
@@ -131,29 +123,48 @@ document.getElementById("nextBtn").onclick = () => {
   }
 };
 
-// ===== Finish Exam =====
 function finishExam() {
   timer.stop();
   localStorage.removeItem("remainingTime");
 
+  const student = JSON.parse(localStorage.getItem("currentStudent"));
+  const studentId = student?.id || null;
+
+  // جمع الإجابات لكل سؤال
+  const answers = exam.questions.map((q) => ({
+    questionId: q.id,
+    selected: q.selectedAnswer ?? null,
+    correct: q.selectedAnswer === q.correctAnswer,
+  }));
+
   const examResult = {
-    examId: exam.id,
-    examName: exam.title || exam.name || "Exam",
+    studentId,
     score,
-    total:
-      exam.totalScore || exam.questions.reduce((a, b) => a + (b.score || 1), 0),
-    date: new Date().toLocaleString(),
+    submittedAt: new Date().toLocaleDateString(),
+    answers,
   };
 
-  StorageService.set("examResult", examResult);
+  // إضافة النتيجة في results الخاصة بالامتحان
+  exam.results = exam.results || [];
+  exam.results.push(examResult);
 
-  // ===== Update current student =====
-  const student = JSON.parse(localStorage.getItem("currentStudent"));
+  // تحديث الـ storage للامتحانات
+  let exams = StorageService.get("exams") || [];
+  const examIndex = exams.findIndex((e) => e.id === exam.id);
+  if (examIndex !== -1) {
+    exams[examIndex] = exam;
+    StorageService.set("exams", exams);
+  }
+
+  // حفظ النتيجة للطالب
   if (student) {
     student.completedExams = student.completedExams || [];
-    student.completedExams.push(examResult);
+    student.completedExams.push({
+      examId: exam.id,
+      score,
+      submittedAt: new Date().toLocaleDateString(),
+    });
 
-    // إزالة الامتحان من assignedExams
     if (student.assignedExams) {
       student.assignedExams = student.assignedExams.filter(
         (id) => id !== exam.id
@@ -163,8 +174,9 @@ function finishExam() {
     localStorage.setItem("currentStudent", JSON.stringify(student));
   }
 
-  window.location.href = "./result.html";
+  console.log("Exams with results:", JSON.parse(localStorage.getItem("exams")));
+
+  window.location.href = "../view/result.html";
 }
 
-// ===== Start Exam =====
 initExam();

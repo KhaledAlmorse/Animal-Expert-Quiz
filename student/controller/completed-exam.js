@@ -1,4 +1,3 @@
-// جلب بيانات الطالب مباشرة من localStorage
 const student = JSON.parse(localStorage.getItem("currentStudent") || "null");
 const tbody = document.getElementById("examTableBody");
 

@@ -7,8 +7,8 @@
     "mobile": "01012345678",
     "grade": "Grade 1",
     "role": "student",
-    "profileImage": "../assets/images/Khaled Elmorse Manea.jpg",
-    "assignedExams": [1, 2, 3],
+    "profileImage": "/assets/images/Khaled Elmorse Manea.jpg",
+    "assignedExams": [2, 3],
     "completedExams": [
       {
         "examId": 5,
