@@ -1,31 +1,32 @@
-# Project README
+#  🚀Animals Quiz App
 
 ## Installation
+To install the required dependencies and get the project running locally, execute the following command in your terminal:
 
-To install the required dependencies, run:
+```bash
+npm install
+```
 
-npm i
-Login Credentials
-Teacher Dashboard
+## 🔐 Login Credentials
 
-To login to the teacher dashboard, use:
+### You can access the platform using the following pre-configured accounts:
 
-Email: sayed@mail.com
+### Teacher Dashboard
 
-Password: admin123
+- Email: sayed@mail.com
 
-Student Account
+- Password: admin123
 
-To login to a student account, use:
+### Student Account
 
-Email: khaled@mail.com
+- Email: khaled@mail.com
 
-Password: 123456
+- Password: 123456
 
-Or you can register with a new account.
+### OR: You can register a new account through the signup page.
 
-Our Team
+## 👥 Our Team
 
-Ahmed Wael: ahmedwaelmujahid@gmail.com
+- Ahmed Wael	ahmedwaelmujahid@gmail.com
 
-Khaled Elmorse: khaledelmorsemanea@gmail.com
+- Khaled Elmorse	khaledelmorsemanea@gmail.com
