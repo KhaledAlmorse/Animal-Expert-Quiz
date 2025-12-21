@@ -3,61 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <title>Student Profile</title>
-
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
 
   <body class="h-full text-white">
-    <div class="min-h-full px-6 py-10 lg:px-8">
-      <!-- ================= Header ================= -->
-      <div class="mx-auto max-w-4xl">
-        <div class="flex items-center gap-6 bg-white/5 p-6 rounded-xl shadow">
-          <!-- Profile Image -->
-          <img
-            id="profileImage"
-            src="../assets/images/placeholder.png"
-            alt="Profile"
-            class="h-24 w-24 rounded-full border-2 border-indigo-500 object-cover"
-          />
-
-          <!-- Student Info -->
-          <div id="studentInfo">
-            <h2 id="studentName" class="text-2xl font-bold">Student Name</h2>
-            <p id="gradeInfo" class="text-gray-400">Grade: 2</p>
-            <p id="roleInfo" class="text-gray-400">Role: Student</p>
-          </div>
+    <div class="min-h-full px-6 py-10 lg:px-8 space-y-8 max-w-5xl mx-auto">
+      <!-- Header -->
+      <div class="flex items-center gap-6 bg-white/5 p-6 rounded-xl shadow">
+        <img
+          id="profileImage"
+          src="../assets/images/placeholder.png"
+          alt="Profile"
+          class="h-24 w-24 rounded-full border-2 border-indigo-500 object-cover"
+        />
+        <div id="studentInfo">
+          <h2 id="studentName" class="text-2xl font-bold">Student Name</h2>
+          <p id="gradeInfo" class="text-gray-400">Grade: 2</p>
+          <p id="roleInfo" class="text-gray-400">Role: Student</p>
         </div>
       </div>
 
-      <!-- ================= Personal + Settings ================= -->
-      <div
-        class="mx-auto mt-10 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
-        <!-- Personal Info -->
+      <!-- Personal Info + Settings -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="bg-white/5 rounded-xl p-6 shadow">
           <h3 class="text-lg font-semibold mb-4 text-indigo-400">
             Personal Information
           </h3>
-
-          <div id="personalDetails" class="space-y-3 text-gray-300">
-            <p>
-              <span class="text-gray-400">Email:</span>
-              student@email.com
-            </p>
-            <p>
-              <span class="text-gray-400">Mobile:</span>
-              01XXXXXXXXX
-            </p>
-          </div>
+          <div id="personalDetails" class="space-y-3 text-gray-300"></div>
         </div>
 
-        <!-- Account Settings -->
         <div class="bg-white/5 rounded-xl p-6 shadow">
           <h3 class="text-lg font-semibold mb-4 text-indigo-400">
             Account Settings
           </h3>
-
           <button
             id="logoutBtn"
             class="w-full rounded-md border border-red-500 text-red-400 py-2 font-semibold hover:bg-red-500 hover:text-white transition"
@@ -67,10 +45,8 @@
         </div>
       </div>
 
-      <!-- ================= Exams Section ================= -->
-      <div
-        class="mx-auto mt-10 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
+      <!-- Exams Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Upcoming Exams -->
         <div class="bg-white/5 rounded-2xl p-6 shadow">
           <div class="flex items-center gap-3 mb-5">
@@ -81,22 +57,7 @@
             </div>
             <h3 class="text-lg font-semibold">Upcoming Exams</h3>
           </div>
-
-          <div
-            class="flex items-center justify-between bg-indigo-500/10 rounded-xl p-4"
-          >
-            <div>
-              <h4 class="font-semibold text-indigo-300">Ocean Animals</h4>
-              <p class="text-sm text-gray-400">20 minutes • 15 questions</p>
-            </div>
-
-            <button
-              class="rounded-lg bg-indigo-500 px-4 py-2 text-sm font-semibold hover:bg-indigo-400 transition"
-              id="start"
-            >
-              Start
-            </button>
-          </div>
+          <div id="upcomingExams" class="space-y-4"></div>
         </div>
 
         <!-- Completed Exams -->
@@ -109,29 +70,12 @@
             </div>
             <h3 class="text-lg font-semibold">Completed Exams</h3>
           </div>
-
-          <div
-            class="flex items-center justify-between bg-green-500/10 rounded-xl p-4"
-          >
-            <div>
-              <h4 class="font-semibold text-green-300">
-                Animal Kingdom Basics
-              </h4>
-              <p class="text-sm text-gray-400">Score: 85 / 100</p>
-              <p class="text-xs text-gray-500">12 / 8 / 2024</p>
-            </div>
-
-            <button
-              class="rounded-lg border border-green-500 px-4 py-2 text-sm font-semibold text-green-400 hover:bg-green-500 hover:text-white transition"
-              id="view"
-            >
-              View
-            </button>
-          </div>
+          <div id="completedExams" class="space-y-2"></div>
         </div>
       </div>
     </div>
 
+    <!-- JS File -->
     <script src="student.js"></script>
   </body>
 </html>

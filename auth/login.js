@@ -1,25 +1,41 @@
+import StorageService from "../utils/storage.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Load JSON once
-  async function loadJSON(database) {
-    const res = await fetch(`../db/${database}.json`);
-    const data = await res.json();
-    localStorage.setItem(database, JSON.stringify(data));
+  new LoginController();
+});
+
+/* ================= Auth Service ================= */
+class AuthService {
+  async login(role, email, password) {
+    await StorageService.loadJSON(role + "s");
+
+    const users = StorageService.get(role + "s");
+
+    return users.find(
+      (user) => user.email === email && user.password === password
+    );
+  }
+}
+
+/* ================= Login Controller ================= */
+class LoginController {
+  constructor() {
+    this.form = document.getElementById("loginForm");
+
+    if (!this.form) {
+      console.error("Login form not found");
+      return;
+    }
+
+    this.authService = new AuthService();
+    this.bindEvents();
   }
 
-  loadJSON();
-
-  function getItems(database) {
-    return JSON.parse(localStorage.getItem(database)) || [];
+  bindEvents() {
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
   }
 
-  const form = document.getElementById("loginForm");
-
-  if (!form) {
-    console.error("Login form not found");
-    return;
-  }
-
-  form.addEventListener("submit", async (e) => {
+  async handleSubmit(e) {
     e.preventDefault();
 
     const email = document.querySelector("input[type=email]").value.trim();
@@ -38,38 +54,27 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    const user = await this.authService.login(role, email, password);
+
+    if (!user) {
+      alert("Email or password incorrect ❌");
+      return;
+    }
+
+    await this.redirectUser(role, user);
+  }
+
+  async redirectUser(role, user) {
     if (role === "student") {
-      await loadJSON("students");
-      const students = getItems("students");
-
-      const student = students.find(
-        (s) => s.email === email && s.password === password
-      );
-
-      if (!student) {
-        alert("Email or password incorrect ❌");
-        return;
-      }
-
-      localStorage.setItem("currentStudent", JSON.stringify(student));
+      await StorageService.loadJSON("exams");
+      StorageService.set("currentStudent", user);
       window.location.href = "../student/student-profile.html";
+      return;
     }
 
     if (role === "teacher") {
-      await loadJSON("teachers");
-      const teachers = getItems("teachers");
-
-      const teacher = teachers.find(
-        (t) => t.email === email && t.password === password
-      );
-
-      if (!teacher) {
-        alert("Email or password incorrect ❌");
-        return;
-      }
-
-      localStorage.setItem("currentTeacher", JSON.stringify(teacher));
+      StorageService.set("currentTeacher", user);
       window.location.href = "../teacher/teacher-dashboard.html";
     }
-  });
-});
+  }
+}
