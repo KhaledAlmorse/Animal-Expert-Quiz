@@ -6,7 +6,7 @@ To install the required dependencies and get the project running locally, execut
 ```bash
 npm install
 ```
-ذ
+
 #🔐 Login Credentials
 
 ## You can access the platform using the following pre-configured accounts:
