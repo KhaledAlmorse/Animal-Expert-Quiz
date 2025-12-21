@@ -148,7 +148,7 @@ function finishExam() {
   exam.results = exam.results || [];
   exam.results.push(examResult);
 
-  // تحديث الـ storage للامتحانات
+  // تحديث جميع الامتحانات في storage
   let exams = StorageService.get("exams") || [];
   const examIndex = exams.findIndex((e) => e.id === exam.id);
   if (examIndex !== -1) {
@@ -156,13 +156,18 @@ function finishExam() {
     StorageService.set("exams", exams);
   }
 
+  // حفظ الـ currentExam المحدث
+  localStorage.setItem("currentExam", JSON.stringify(exam));
+
   // حفظ النتيجة للطالب
   if (student) {
     student.completedExams = student.completedExams || [];
     student.completedExams.push({
       examId: exam.id,
+      examName: exam.title,
       score,
-      submittedAt: new Date().toLocaleDateString(),
+      total: exam.totalScore,
+      date: new Date().toLocaleDateString(),
     });
 
     if (student.assignedExams) {

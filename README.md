@@ -1,7 +1,6 @@
-# 🚀Animals Quiz App
+#  🚀Animals Quiz App
 
 ## Installation
-
 To install the required dependencies and get the project running locally, execute the following command in your terminal:
 
 ```bash
@@ -28,6 +27,6 @@ npm install
 
 ## 👥 Our Team
 
-- Ahmed Wael ahmedwaelmujahid@gmail.com
+- Ahmed Wael	ahmedwaelmujahid@gmail.com
 
-- Khaled Elmorse khaledelmorsemanea@gmail.com
+- Khaled Elmorse	khaledelmorsemanea@gmail.com
