@@ -23,7 +23,7 @@ npm install
 
 - Password: 123456
 
-### Note: Alternatively, you can register a new account through the signup page.
+### OR: You can register a new account through the signup page.
 
 ## 👥 Our Team
 
