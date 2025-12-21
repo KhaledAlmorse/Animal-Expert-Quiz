@@ -1,6 +1,4 @@
-/*************************
- * Models
- *************************/
+
 class Question {
   constructor(id, text, image_url, difficulty, score, choices, correctAnswer) {
     this.id = id;
@@ -13,9 +11,7 @@ class Question {
   }
 }
 
-/*************************
- * Helpers
- *************************/
+
 function getValue(id) {
   return document.getElementById(id).value.trim();
 }
@@ -37,9 +33,7 @@ function clearQuestionForm() {
   document.getElementById("difficulty").value = "";
 }
 
-/*************************
- * Load Exam
- *************************/
+
 const params = new URLSearchParams(window.location.search);
 const examId = Number(params.get("id"));
 
@@ -60,13 +54,11 @@ let totalScore = questions.reduce((sum, q) => sum + q.score, 0);
 renderQuestions();
 updateSummary();
 
-/*************************
- * Add / Edit Question
- *************************/
+
 let editingIndex = null;
 const addBtn = document.querySelector("button[type='button']");
 
-addBtn.addEventListener("click", () => {
+addBtn.addEventListener("click", async () => {
   const text = getValue("questionText");
   const score = Number(getValue("questionScore"));
   const difficulty = getValue("difficulty");
@@ -79,14 +71,23 @@ addBtn.addEventListener("click", () => {
     getValue("d"),
   ];
 
-  // Validation
   if (!text) return showError("Question text is required");
   if (choices.some(c => !c)) return showError("All answers are required");
   if (!difficulty) return showError("Select difficulty");
   if (isNaN(correctAnswer)) return showError("Select correct answer");
   if (score <= 0) return showError("Score must be greater than 0");
 
-  // Edit Question
+    let imageUrl = null;
+    const imageInput = document.getElementById("questionImage");
+
+    if (imageInput.files.length > 0) {
+      try {
+        imageUrl = await uploadImageToCloudinary(imageInput.files[0]);
+      } catch (err) {
+        return showError("Failed to upload image");
+      }
+    }
+
   if (editingIndex !== null) {
     totalScore -= questions[editingIndex].score;
 
@@ -98,6 +99,7 @@ addBtn.addEventListener("click", () => {
     questions[editingIndex] = {
       ...questions[editingIndex],
       text,
+      image_url: imageUrl,
       difficulty,
       score,
       choices,
@@ -108,7 +110,6 @@ addBtn.addEventListener("click", () => {
     editingIndex = null;
     addBtn.textContent = "Add Question";
   }
-  // Add Question
   else {
     if (totalScore + score > 100)
       return showError("Total score cannot exceed 100");
@@ -117,7 +118,7 @@ addBtn.addEventListener("click", () => {
       new Question(
         questions.length + 1,
         text,
-        null,
+        imageUrl,
         difficulty,
         score,
         choices,
@@ -133,9 +134,7 @@ addBtn.addEventListener("click", () => {
   updateSummary();
 });
 
-/*************************
- * Render Questions
- *************************/
+
 function renderQuestions() {
   const container = document.getElementById("questionsList");
   container.innerHTML = "";
@@ -162,9 +161,6 @@ function renderQuestions() {
   });
 }
 
-/*************************
- * Edit / Remove
- *************************/
 function editQuestion(index) {
   const q = questions[index];
   editingIndex = index;
@@ -191,9 +187,7 @@ function removeQuestion(index) {
   updateSummary();
 }
 
-/*************************
- * Save Exam
- *************************/
+
 document.querySelector("form").addEventListener("submit", e => {
   e.preventDefault();
 
@@ -211,6 +205,6 @@ document.querySelector("form").addEventListener("submit", e => {
 
   localStorage.setItem("exams", JSON.stringify(exams));
 
-  alert("Exam Updated Successfully ✅");
+  alert("Exam Updated Successfully!");
   location.href = "exams.html";
 });

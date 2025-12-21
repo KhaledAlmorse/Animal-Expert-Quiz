@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Teacher Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="teacher.js"></script>
+    <script defer src="../controllers/teacher.js"></script>
   </head>
   <body class="bg-gray-100">
     <div class="flex min-h-screen">
@@ -12,10 +12,14 @@
       <aside class="w-64 bg-gray-900 text-white p-5">
         <h2 class="text-2xl font-bold mb-8">Teacher Panel</h2>
         <nav class="space-y-4">
-          <a href="teacher-dashboard.html" class="block hover:text-teal-400"
+          <a
+            href="/teacher/views/teacher-dashboard.html"
+            class="block hover:text-teal-400"
             >Dashboard</a
           >
-          <a href="exams.html" class="block hover:text-teal-400">Exams</a>
+          <a href="/teacher/views/exams.html" class="block hover:text-teal-400"
+            >Exams</a
+          >
         </nav>
       </aside>
 
@@ -24,13 +28,13 @@
         <h1 class="text-3xl font-bold mb-6">Dashboard Overview</h1>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="bg-white p-6 rounded shadow">
-            Total Exams: <strong>5</strong>
+            Total Exams: <strong><span id="totalExams">0</span></strong>
           </div>
           <div class="bg-white p-6 rounded shadow">
-            Total Students: <strong>120</strong>
+            Total Students: <strong><span id="totalStudents">0</span></strong>
           </div>
           <div class="bg-white p-6 rounded shadow">
-            Completed Exams: <strong>90</strong>
+            Completed Exams: <strong><span id="completedExams">0</span></strong>
           </div>
         </div>
       </main>

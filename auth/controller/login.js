@@ -73,7 +73,7 @@ class LoginController {
 
     if (role === "teacher") {
       StorageService.set("currentTeacher", user);
-      window.location.href = "../teacher/view/teacher-dashboard.html";
+      window.location.href = "../teacher/views/teacher-dashboard.html";
     }
   }
 }
