@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Exams List</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="exams.js"></script>
   </head>
   <body class="bg-gray-100">
     <div class="flex min-h-screen">
@@ -14,13 +15,6 @@
             >Dashboard</a
           >
           <a href="exams.html" class="block hover:text-teal-400">Exams</a>
-          <a href="students.html" class="block hover:text-teal-400">Students</a>
-          <a href="view-results.html" class="block hover:text-teal-400"
-            >Results</a
-          >
-          <a href="review-answers.html" class="block hover:text-teal-400"
-            >Review Answers</a
-          >
         </nav>
       </aside>
 
@@ -44,7 +38,7 @@
               <th class="p-3">Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="examsTableBody">
             <tr class="border-t">
               <td class="p-3">Math Final Exam</td>
               <td class="p-3 text-center">20</td>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Students</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="assign-students.js"></script>
   </head>
   <body class="bg-gray-100">
     <div class="flex min-h-screen">
@@ -14,18 +15,19 @@
             >Dashboard</a
           >
           <a href="exams.html" class="block hover:text-teal-400">Exams</a>
-          <a href="students.html" class="block hover:text-teal-400">Students</a>
-          <a href="view-results.html" class="block hover:text-teal-400"
-            >Results</a
-          >
-          <a href="review-answers.html" class="block hover:text-teal-400"
-            >Review Answers</a
-          >
         </nav>
       </aside>
 
       <main class="flex-1 p-8">
-        <h1 class="text-2xl font-bold mb-4">Assign Students to Exam</h1>
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold mb-4">Assign Students to Exam</h1>
+          <button
+            id="saveAssign"
+            class="mt-4 bg-teal-600 text-white px-4 py-2 rounded"
+          >
+            Save Assignment
+          </button>
+        </div>
         <table class="w-full bg-white rounded shadow">
           <thead class="bg-gray-200">
             <tr>
@@ -34,13 +36,7 @@
               <th class="p-3">Assign</th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="border-t">
-              <td class="p-3">Ahmed Ali</td>
-              <td class="p-3">ahmed@mail.com</td>
-              <td class="p-3"><input type="checkbox" /></td>
-            </tr>
-          </tbody>
+          <tbody id="studentsTable"></tbody>
         </table>
       </main>
     </div>
