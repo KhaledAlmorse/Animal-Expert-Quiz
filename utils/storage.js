@@ -1,6 +1,6 @@
 export default class StorageService {
   static async loadJSON(database) {
-    const res = await fetch(`../db/${database}.json`);
+    const res = await fetch(`/db/${database}.json`);
     const data = await res.json();
     localStorage.setItem(database, JSON.stringify(data));
   }

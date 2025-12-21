@@ -1,10 +1,9 @@
-import StorageService from "../utils/storage.js";
+import StorageService from "/utils/storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   new RegisterController();
 });
 
-/* ================== Student Service ================== */
 class StudentService {
   constructor() {
     this.students = StorageService.get("students");
@@ -24,7 +23,6 @@ class StudentService {
   }
 }
 
-/* ================== Register Controller ================== */
 class RegisterController {
   constructor() {
     this.form = document.getElementById("registerForm");
@@ -65,7 +63,6 @@ class RegisterController {
       reader.onload = () => {
         this.profileBase64 = reader.result;
         this.preview.src = this.profileBase64;
-        this.preview.style.display = "block";
       };
       reader.readAsDataURL(file);
     });
@@ -82,7 +79,7 @@ class RegisterController {
     if (!student) return;
 
     this.studentService.addStudent(student);
-    window.location.href = "../student/student-profile.html";
+    window.location.href = "../../student/view/student-profile.html";
   }
 
   getFormData() {

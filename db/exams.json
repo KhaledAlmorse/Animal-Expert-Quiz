@@ -10,7 +10,7 @@
       {
         "id": 1,
         "text": "What is JavaScript?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": [
@@ -24,7 +24,7 @@
       {
         "id": 2,
         "text": "Which keyword declares a variable?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["var", "int", "string", "define"],
@@ -33,7 +33,7 @@
       {
         "id": 3,
         "text": "Which symbol is used for comments in JavaScript?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["//", "<!-- -->", "#", "**"],
@@ -42,7 +42,7 @@
       {
         "id": 4,
         "text": "Which method prints to console?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["console.log()", "print()", "echo()", "log()"],
@@ -51,7 +51,7 @@
       {
         "id": 5,
         "text": "What does typeof return?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Value", "Type of variable", "Length", "Index"],
@@ -60,7 +60,7 @@
       {
         "id": 6,
         "text": "Which one is a string?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["123", "true", "'Hello'", "null"],
@@ -69,7 +69,7 @@
       {
         "id": 7,
         "text": "How do you write an if statement?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["if x > y", "if (x > y)", "if x > y then", "if {x > y}"],
@@ -78,7 +78,7 @@
       {
         "id": 8,
         "text": "Which loop is used when number of iterations is known?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["while", "do while", "for", "foreach"],
@@ -87,7 +87,7 @@
       {
         "id": 9,
         "text": "What does === mean?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": [
@@ -101,7 +101,7 @@
       {
         "id": 10,
         "text": "Which array method adds an element at the end?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["push()", "pop()", "shift()", "unshift()"],
@@ -110,7 +110,7 @@
       {
         "id": 11,
         "text": "Which function converts JSON to object?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": [
@@ -124,7 +124,7 @@
       {
         "id": 12,
         "text": "What is localStorage used for?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": [
@@ -138,7 +138,7 @@
       {
         "id": 13,
         "text": "Which keyword creates a class?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["function", "class", "object", "constructor"],
@@ -147,7 +147,7 @@
       {
         "id": 14,
         "text": "Which method runs when object is created?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["init()", "start()", "constructor()", "create()"],
@@ -156,7 +156,7 @@
       {
         "id": 15,
         "text": "What does async/await handle?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "hard",
         "score": 11,
         "choices": [
@@ -181,7 +181,7 @@
       {
         "id": 2,
         "text": "Which animal says 'Meow'?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Cat", "Dog", "Cow", "Lion"],
@@ -190,7 +190,7 @@
       {
         "id": 2,
         "text": "Which animal is big and gray?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Elephant", "Cat", "Bird", "Fish"],
@@ -199,7 +199,7 @@
       {
         "id": 3,
         "text": "Which animal can fly?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Bird", "Dog", "Cow", "Horse"],
@@ -208,7 +208,7 @@
       {
         "id": 4,
         "text": "Which animal lives in water?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Fish", "Cat", "Lion", "Horse"],
@@ -217,7 +217,7 @@
       {
         "id": 5,
         "text": "Which animal gives us milk?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Cow", "Dog", "Cat", "Lion"],
@@ -226,7 +226,7 @@
       {
         "id": 6,
         "text": "Which animal is a pet?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Dog", "Lion", "Elephant", "Tiger"],
@@ -235,7 +235,7 @@
       {
         "id": 7,
         "text": "Which animal has a long neck?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Giraffe", "Cat", "Dog", "Fish"],
@@ -244,7 +244,7 @@
       {
         "id": 8,
         "text": "Which animal is the king of the jungle?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Lion", "Dog", "Cow", "Horse"],
@@ -253,7 +253,7 @@
       {
         "id": 9,
         "text": "Which animal can hop?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Rabbit", "Cow", "Horse", "Dog"],
@@ -262,7 +262,7 @@
       {
         "id": 10,
         "text": "Which animal lives on a farm?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Sheep", "Tiger", "Whale", "Lion"],
@@ -271,7 +271,7 @@
       {
         "id": 11,
         "text": "Which animal eats grass?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Cow", "Lion", "Cat", "Dog"],
@@ -280,7 +280,7 @@
       {
         "id": 12,
         "text": "Which animal lives in the ocean?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Whale", "Cow", "Dog", "Cat"],
@@ -289,7 +289,7 @@
       {
         "id": 13,
         "text": "Which animal has stripes?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Zebra", "Cow", "Sheep", "Elephant"],
@@ -298,7 +298,7 @@
       {
         "id": 14,
         "text": "Which animal is wild?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "hard",
         "score": 9,
         "choices": ["Tiger", "Cat", "Dog", "Cow"],
@@ -307,7 +307,7 @@
       {
         "id": 15,
         "text": "Which animal lives in the jungle?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "hard",
         "score": 9,
         "choices": ["Monkey", "Cow", "Sheep", "Horse"],
@@ -320,6 +320,7 @@
   {
     "id": 3,
     "title": "Fruits Exam - Grade 1 to 3",
+    "image": "/assets/images/images.jpg",
     "totalTime": 900,
     "questionTime": 60,
     "totalScore": 100,
@@ -327,7 +328,7 @@
       {
         "id": 1,
         "text": "Which fruit is red?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Apple", "Banana", "Orange", "Grapes"],
@@ -336,7 +337,7 @@
       {
         "id": 2,
         "text": "Which fruit is yellow?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Banana", "Apple", "Strawberry", "Grapes"],
@@ -345,7 +346,7 @@
       {
         "id": 3,
         "text": "Which fruit is orange?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Orange", "Apple", "Banana", "Grapes"],
@@ -354,7 +355,7 @@
       {
         "id": 4,
         "text": "Which fruit is green?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Apple", "Cherry", "Banana", "Mango"],
@@ -363,7 +364,7 @@
       {
         "id": 5,
         "text": "Which fruit is small and red?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Strawberry", "Banana", "Watermelon", "Apple"],
@@ -372,7 +373,7 @@
       {
         "id": 6,
         "text": "Which fruit is long?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Banana", "Apple", "Orange", "Grapes"],
@@ -381,7 +382,7 @@
       {
         "id": 7,
         "text": "Which fruit has seeds inside?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Apple", "Banana", "Grapes", "Cherry"],
@@ -390,7 +391,7 @@
       {
         "id": 8,
         "text": "Which fruit is purple?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "easy",
         "score": 5,
         "choices": ["Grapes", "Banana", "Apple", "Orange"],
@@ -399,7 +400,7 @@
       {
         "id": 9,
         "text": "Which fruit is very big?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Watermelon", "Apple", "Banana", "Orange"],
@@ -408,7 +409,7 @@
       {
         "id": 10,
         "text": "Which fruit is sweet and yellow?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Mango", "Apple", "Grapes", "Cherry"],
@@ -417,7 +418,7 @@
       {
         "id": 11,
         "text": "Which fruit grows on a tree?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Apple", "Watermelon", "Strawberry", "Grapes"],
@@ -426,7 +427,7 @@
       {
         "id": 12,
         "text": "Which fruit has a hard shell?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Coconut", "Apple", "Banana", "Orange"],
@@ -435,7 +436,7 @@
       {
         "id": 13,
         "text": "Which fruit is sour?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "medium",
         "score": 7,
         "choices": ["Lemon", "Banana", "Apple", "Mango"],
@@ -444,7 +445,7 @@
       {
         "id": 14,
         "text": "Which fruit has green outside and red inside?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "hard",
         "score": 9,
         "choices": ["Watermelon", "Apple", "Orange", "Banana"],
@@ -453,7 +454,7 @@
       {
         "id": 15,
         "text": "Which fruit is used to make juice?",
-        "image": "../assets/images/images.jpg",
+        "image": "/assets/images/images.jpg",
         "difficulty": "hard",
         "score": 9,
         "choices": ["Orange", "Apple", "Banana", "Grapes"],
