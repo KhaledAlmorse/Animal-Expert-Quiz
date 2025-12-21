@@ -46,6 +46,6 @@ document.getElementById("completedExams").textContent = completedExams.length;
 const logoutBtn = document.getElementById("logoutBtn");
 
 logoutBtn.addEventListener("click", () => {
-  localStorage.removeItem("currentTeacher");
+  localStorage.removeItem("currentTeacherId");
   window.location.href = "../../auth/view/login.html";
 });
