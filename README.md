@@ -1,4 +1,4 @@
-# Project Name 🚀
+#  🚀Animals Quiz App
 
 ## Installation
 To install the required dependencies and get the project running locally, execute the following command in your terminal:
