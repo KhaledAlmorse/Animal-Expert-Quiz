@@ -3,7 +3,7 @@ class Question {
   constructor(id, text, image_url, difficulty, score, choices, correctAnswer) {
     this.id = id;
     this.text = text;
-    this.image_url = image_url;
+    this.image = image_url;
     this.difficulty = difficulty;
     this.score = score;
     this.choices = choices;
@@ -99,7 +99,7 @@ addBtn.addEventListener("click", async () => {
     questions[editingIndex] = {
       ...questions[editingIndex],
       text,
-      image_url: imageUrl,
+      image: imageUrl,
       difficulty,
       score,
       choices,
