@@ -4,14 +4,13 @@
 
 To install the required dependencies, run:
 
-```bash
 npm i
 Login Credentials
 Teacher Dashboard
 
 To login to the teacher dashboard, use:
 
-Username: mr_sayed
+Email: sayed@mail.com
 
 Password: admin123
 
@@ -19,7 +18,7 @@ Student Account
 
 To login to a student account, use:
 
-Username: Khaled Elmorse
+Email: khaled@mail.com
 
 Password: 123456
 
