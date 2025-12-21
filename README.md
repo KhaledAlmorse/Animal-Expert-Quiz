@@ -1,31 +1,32 @@
-# Project README
+# Project Name 🚀
 
 ## Installation
+To install the required dependencies and get the project running locally, execute the following command in your terminal:
 
-To install the required dependencies, run:
+```bash
+npm install
+```
+ذ
+#🔐 Login Credentials
 
-npm i
-Login Credentials
-Teacher Dashboard
+## You can access the platform using the following pre-configured accounts:
 
-To login to the teacher dashboard, use:
+## Teacher Dashboard
 
-Email: sayed@mail.com
+- Email: sayed@mail.com
 
-Password: admin123
+- Password: admin123
 
-Student Account
+## Student Account
 
-To login to a student account, use:
+- Email: khaled@mail.com
 
-Email: khaled@mail.com
+- Password: 123456
 
-Password: 123456
+## Note: Alternatively, you can register a new account through the signup page.
 
-Or you can register with a new account.
+$ 👥 Our Team
 
-Our Team
+- Ahmed Wael	ahmedwaelmujahid@gmail.com
 
-Ahmed Wael: ahmedwaelmujahid@gmail.com
-
-Khaled Elmorse: khaledelmorsemanea@gmail.com
+- Khaled Elmorse	khaledelmorsemanea@gmail.com
