@@ -8,7 +8,7 @@
     "grade": "Grade 1",
     "role": "student",
     "profileImage": "/assets/images/Khaled Elmorse Manea.jpg",
-    "assignedExams": [],
+    "assignedExams": [1,2],
     "completedExams": [
       {
         "examId": 5,

@@ -23,13 +23,15 @@
 
       <div class="mt-12 sm:mx-auto sm:w-full sm:max-w-lg">
         <form class="space-y-8" id="registerForm">
+          <!-- Username -->
           <div>
-            <label class="block text-lg font-medium text-gray-100"
-              >Username</label
-            >
+            <label class="block text-lg font-medium text-gray-100">
+              Username
+            </label>
             <div class="mt-3">
               <input
                 type="text"
+                id="username"
                 required
                 class="input-style text-lg px-4 py-3"
                 placeholder="Enter username"
@@ -37,11 +39,15 @@
             </div>
           </div>
 
+          <!-- Email -->
           <div>
-            <label class="block text-lg font-medium text-gray-100">Email</label>
+            <label class="block text-lg font-medium text-gray-100">
+              Email
+            </label>
             <div class="mt-3">
               <input
                 type="email"
+                id="email"
                 required
                 class="input-style text-lg px-4 py-3"
                 placeholder="example@mail.com"
@@ -49,13 +55,15 @@
             </div>
           </div>
 
+          <!-- Password -->
           <div>
-            <label class="block text-lg font-medium text-gray-100"
-              >Password</label
-            >
+            <label class="block text-lg font-medium text-gray-100">
+              Password
+            </label>
             <div class="mt-3">
               <input
                 type="password"
+                id="password"
                 required
                 class="input-style text-lg px-4 py-3"
                 placeholder="••••••••"
@@ -63,10 +71,18 @@
             </div>
           </div>
 
+          <!-- Grade -->
           <div>
-            <label class="block text-lg font-medium text-gray-100">Grade</label>
+            <label class="block text-lg font-medium text-gray-100">
+              Grade
+            </label>
             <div class="mt-3">
-              <select class="input-style text-lg px-4 py-3" required>
+              <select
+                id="grade"
+                class="input-style text-lg px-4 py-3"
+                required
+              >
+                <option value="">Select Grade</option>
                 <option value="1">Grade 1</option>
                 <option value="2">Grade 2</option>
                 <option value="3">Grade 3</option>
@@ -74,13 +90,15 @@
             </div>
           </div>
 
+          <!-- Mobile -->
           <div>
-            <label class="block text-lg font-medium text-gray-100"
-              >Mobile Number</label
-            >
+            <label class="block text-lg font-medium text-gray-100">
+              Mobile Number
+            </label>
             <div class="mt-3">
               <input
                 type="tel"
+                id="mobile"
                 required
                 class="input-style text-lg px-4 py-3"
                 placeholder="01XXXXXXXXX"
@@ -88,19 +106,22 @@
             </div>
           </div>
 
+          <!-- Profile Image -->
           <div>
-            <label class="block text-lg font-medium text-gray-100"
-              >Profile Picture</label
-            >
+            <label class="block text-lg font-medium text-gray-100">
+              Profile Picture
+            </label>
             <div class="mt-3">
               <input
                 type="file"
+                id="profileImage"
                 accept="image/*"
                 class="block w-full text-lg text-gray-300 file:mr-4 file:rounded-md file:border-0 file:bg-indigo-500 file:px-4 file:py-2 file:text-lg file:font-semibold file:text-white hover:file:bg-indigo-400"
               />
             </div>
           </div>
 
+          <!-- Submit -->
           <div>
             <button
               type="submit"
@@ -136,6 +157,7 @@
         outline: 2px solid #6366f1;
       }
     </style>
-    <script type="module" src="../controller//register.js"></script>
+
+    <script type="module" src="../controller/register.js"></script>
   </body>
 </html>

@@ -16,12 +16,20 @@ if (
 } else {
   student.completedExams.forEach((exam) => {
     const row = document.createElement("tr");
+
+    // تحديد لون الدرجة
+    const scoreClass =
+      exam.score < 50 ? "text-red-400" : "text-green-400";
+
     row.innerHTML = `
       <td class="px-6 py-4">${exam.examId}</td>
       <td class="px-6 py-4">${exam.examName}</td>
-      <td class="px-6 py-4 text-green-400 font-semibold">${exam.score} / ${exam.total}</td>
+      <td class="px-6 py-4 font-semibold ${scoreClass}">
+        ${exam.score} / ${exam.total}
+      </td>
       <td class="px-6 py-4">${exam.date}</td>
     `;
+
     tbody.appendChild(row);
   });
 }

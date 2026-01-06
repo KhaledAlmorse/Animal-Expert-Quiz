@@ -1,56 +1,59 @@
 const exam = JSON.parse(localStorage.getItem("currentExam"));
 const student = JSON.parse(localStorage.getItem("currentStudent"));
 
-if (exam && student) {
-  const result = exam.results.find((r) => r.studentId === student.id);
+const resultMessage = document.getElementById("resultMessage");
+const scoreEl = document.getElementById("score");
+const totalEl = document.getElementById("total");
+const correctEl = document.getElementById("correctCount");
+const incorrectEl = document.getElementById("incorrectCount");
 
-  if (!result) {
-    console.log("No results found for this student.");
+
+if (!exam || !student) {
+  resultMessage.textContent = "No exam data found ❌";
+  throw new Error("Missing data");
+}
+
+if (!exam.results || !Array.isArray(exam.results)) {
+  resultMessage.textContent = "No results available ❌";
+  throw new Error("No results");
+}
+
+
+const result = exam.results.find(
+  (r) => Number(r.studentId) === Number(student.id)
+);
+
+if (!result) {
+  resultMessage.textContent = "Result not found ❌";
+  throw new Error("Result not found");
+}
+
+
+let correct = 0;
+let incorrect = 0;
+
+exam.questions.forEach((q) => {
+  if (q.selectedAnswer === q.correctAnswer) {
+    correct++;
   } else {
-    document.getElementById("score").textContent = result.score;
-    document.getElementById(
-      "total"
-    ).textContent = `out of ${exam.totalScore} points`;
-
-    let correct = 0;
-    let incorrect = 0;
-
-    result.answers.forEach((ans) => {
-      if (ans.correct) correct++;
-      else incorrect++;
-    });
-
-    document.getElementById("correctCount").textContent = `${correct} Correct`;
-    document.getElementById(
-      "incorrectCount"
-    ).textContent = `${incorrect} Incorrect`;
-
-    const percent = (result.score / exam.totalScore) * 100;
-    const message =
-      percent >= 80
-        ? "Excellent Work 🎉"
-        : percent >= 50
-        ? "Good Job 👍"
-        : "Keep Trying 💪";
-    document.getElementById("resultMessage").textContent = message;
-
-    const tbody = document.getElementById("answersTableBody");
-    exam.questions.forEach((q) => {
-      const studentAnswer = result.answers.find((a) => a.questionId === q.id);
-      const row = document.createElement("tr");
-      row.innerHTML = `
-        <td class="px-6 py-2">${q.text}</td>
-        <td class="px-6 py-2">${q.choices[q.correctAnswer]}</td>
-        <td class="px-6 py-2">${
-          studentAnswer ? q.choices[studentAnswer.selected] : "Not Answered"
-        }</td>
-        <td class="px-6 py-2">${
-          studentAnswer ? (studentAnswer.correct ? "✔" : "✖") : "-"
-        }</td>
-      `;
-      tbody.appendChild(row);
-    });
+    incorrect++;
   }
+});
+
+
+scoreEl.textContent = result.score;
+totalEl.textContent = `out of ${exam.totalScore} points`;
+
+correctEl.textContent = `${correct} Correct`;
+incorrectEl.textContent = `${incorrect} Incorrect`;
+
+
+const percent = (result.score / exam.totalScore) * 100;
+
+if (percent >= 80) {
+  resultMessage.textContent = "Excellent Work 🎉";
+} else if (percent >= 50) {
+  resultMessage.textContent = "Good Job 👍";
 } else {
-  console.log("Exam or student data not found in localStorage.");
+  resultMessage.textContent = "Keep Trying 💪";
 }
