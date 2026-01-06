@@ -54,9 +54,7 @@ function renderQuestion() {
   // Question text
   document.getElementById("questionText").textContent = question.text;
 
-  // =========================
-  // ✅ Image handling
-  // =========================
+  
   const imageContainer = document.getElementById("imageContainer");
   const questionImage = document.getElementById("questionImage");
 
@@ -137,9 +135,7 @@ function finishExam() {
   const student = JSON.parse(localStorage.getItem("currentStudent"));
   if (!student) return;
 
-  // =============================
-  // ✅ Save result inside exam
-  // =============================
+
   exam.results = exam.results || [];
 
   exam.results.push({
@@ -150,9 +146,7 @@ function finishExam() {
 
   localStorage.setItem("currentExam", JSON.stringify(exam));
 
-  // =============================
-  // ✅ Update student data
-  // =============================
+
   student.completedExams = student.completedExams || [];
   student.completedExams.push({
     examId: exam.id,
@@ -162,9 +156,7 @@ function finishExam() {
     date: new Date().toLocaleDateString(),
   });
 
-  // =============================
-  // ✅ REMOVE exam from coming exams
-  // =============================
+ 
   if (student.assignedExams) {
     student.assignedExams = student.assignedExams.filter(
       (id) => Number(id) !== Number(exam.id)

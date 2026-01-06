@@ -17,7 +17,6 @@ if (
   student.completedExams.forEach((exam) => {
     const row = document.createElement("tr");
 
-    // تحديد لون الدرجة
     const scoreClass =
       exam.score < 50 ? "text-red-400" : "text-green-400";
 
