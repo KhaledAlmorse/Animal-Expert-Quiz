@@ -2,7 +2,6 @@ const exam = JSON.parse(localStorage.getItem("currentExam"));
 const student = JSON.parse(localStorage.getItem("currentStudent"));
 
 if (exam && student) {
-  // جلب نتيجة الطالب من exam.results
   const result = exam.results.find((r) => r.studentId === student.id);
 
   if (!result) {
@@ -16,7 +15,6 @@ if (exam && student) {
     let correct = 0;
     let incorrect = 0;
 
-    // عد الإجابات الصحيحة والخاطئة
     result.answers.forEach((ans) => {
       if (ans.correct) correct++;
       else incorrect++;

@@ -1,5 +1,4 @@
 export default class RandomService {
-  // Shuffle Array (Fisher–Yates)
   static shuffleArray(array) {
     const shuffled = [...array];
 
@@ -11,7 +10,6 @@ export default class RandomService {
     return shuffled;
   }
 
-  // Shuffle choices but keep correct answer index
   static shuffleChoices(question) {
     const choicesWithIndex = question.choices.map((choice, index) => ({
       choice,
@@ -28,7 +26,6 @@ export default class RandomService {
     return question;
   }
 
-  // Shuffle questions + their choices
   static shuffleExam(exam) {
     exam.questions = RandomService.shuffleArray(exam.questions).map((q) =>
       RandomService.shuffleChoices(q)

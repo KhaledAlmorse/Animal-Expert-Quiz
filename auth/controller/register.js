@@ -4,9 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   new RegisterController();
 });
 
+
 class StudentService {
   constructor() {
-    this.students = StorageService.get("students");
+    this.students = StorageService.get("students") || [];
+  }
+
+  emailExists(email) {
+    return this.students.some(student => student.email === email);
   }
 
   addStudent(student) {
@@ -22,6 +27,7 @@ class StudentService {
       : 1;
   }
 }
+
 
 class RegisterController {
   constructor() {
@@ -44,6 +50,26 @@ class RegisterController {
     this.bindEvents();
   }
 
+  bindEvents() {
+    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    const student = this.getFormData();
+    if (!student) return;
+
+    if (this.studentService.emailExists(student.email)) {
+      alert("This email is already registered. Please use another email.");
+      return;
+    }
+
+    this.studentService.addStudent(student);
+    window.location.href = "../../student/view/student-profile.html";
+  }
+
+
   setupImagePreview() {
     if (!this.fileInput) return;
 
@@ -63,36 +89,22 @@ class RegisterController {
       reader.onload = () => {
         this.profileBase64 = reader.result;
         this.preview.src = this.profileBase64;
+        this.preview.style.display = "block";
       };
       reader.readAsDataURL(file);
     });
   }
 
-  bindEvents() {
-    this.form.addEventListener("submit", (e) => this.handleSubmit(e));
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-
-    const student = this.getFormData();
-    if (!student) return;
-
-    this.studentService.addStudent(student);
-    window.location.href = "../../student/view/student-profile.html";
-  }
 
   getFormData() {
     const username = document.querySelector("input[type=text]").value.trim();
     const email = document.querySelector("input[type=email]").value.trim();
-    const password = document
-      .querySelector("input[type=password]")
-      .value.trim();
+    const password = document.querySelector("input[type=password]").value.trim();
     const grade = document.querySelector("select").value;
     const mobile = document.querySelector("input[type=tel]").value.trim();
 
     if (!username || !email || !password || !grade || !mobile) {
-      alert("Please fill all fields!");
+      alert("Please fill in all fields.");
       return null;
     }
 
