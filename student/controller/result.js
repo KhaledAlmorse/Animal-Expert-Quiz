@@ -34,7 +34,6 @@ if (exam && student) {
         : "Keep Trying 💪";
     document.getElementById("resultMessage").textContent = message;
 
-    // عرض كل سؤال وإجاباته
     const tbody = document.getElementById("answersTableBody");
     exam.questions.forEach((q) => {
       const studentAnswer = result.answers.find((a) => a.questionId === q.id);

@@ -84,7 +84,7 @@ function handleAnswer(btn, index, question) {
   if (selectedAnswer !== null) return;
 
   selectedAnswer = index;
-  question.selectedAnswer = index; // حفظ الاختيار في السؤال نفسه
+  question.selectedAnswer = index;
 
   const questionScore = question.score || 1;
 
@@ -130,7 +130,6 @@ function finishExam() {
   const student = JSON.parse(localStorage.getItem("currentStudent"));
   const studentId = student?.id || null;
 
-  // جمع الإجابات لكل سؤال
   const answers = exam.questions.map((q) => ({
     questionId: q.id,
     selected: q.selectedAnswer ?? null,
@@ -144,11 +143,9 @@ function finishExam() {
     answers,
   };
 
-  // إضافة النتيجة في results الخاصة بالامتحان
   exam.results = exam.results || [];
   exam.results.push(examResult);
 
-  // تحديث جميع الامتحانات في storage
   let exams = StorageService.get("exams") || [];
   const examIndex = exams.findIndex((e) => e.id === exam.id);
   if (examIndex !== -1) {
@@ -156,10 +153,8 @@ function finishExam() {
     StorageService.set("exams", exams);
   }
 
-  // حفظ الـ currentExam المحدث
   localStorage.setItem("currentExam", JSON.stringify(exam));
 
-  // حفظ النتيجة للطالب
   if (student) {
     student.completedExams = student.completedExams || [];
     student.completedExams.push({
