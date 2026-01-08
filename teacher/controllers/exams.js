@@ -4,7 +4,7 @@ const tbody = document.getElementById("examsTableBody");
 tbody.innerHTML = "";
 
 exams.forEach(exam => {
-  const status = exam.results.length ? "Published" : "Draft";
+  const status = exam.results.length ? "solved" : "pending";
 
   tbody.innerHTML += `
     <tr class="border-t">
@@ -26,6 +26,16 @@ exams.forEach(exam => {
 });
 
 function deleteExam(id) {
+  if (!confirm("Are you sure you want to delete this exam?")) return;
+  exam = exams.find(e => e.id === id);
+  if (exam.assignedStudents.length) {
+    alert("Cannot delete an exam that has assigned students.");
+    return;
+  }
+  if(exam.results.length) {
+    alert("Cannot delete an exam that has results.");
+    return;
+  }
   const updated = exams.filter(e => e.id !== id);
   localStorage.setItem("exams", JSON.stringify(updated));
   location.reload();

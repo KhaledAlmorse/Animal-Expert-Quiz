@@ -7,6 +7,8 @@ let selectedAnswer = null;
 let score = 0;
 let exam;
 let timer;
+let answers = [];
+
 
 async function initExam() {
   await StorageService.loadJSON("exams");
@@ -95,7 +97,15 @@ function handleAnswer(btn, index, question) {
   selectedAnswer = index;
   question.selectedAnswer = index;
 
-  if (index === question.correctAnswer) {
+  const isCorrect = index === question.correctAnswer;
+
+  answers.push({
+    questionId: question.id,
+    selected: index,
+    correct: isCorrect
+  });
+
+  if (isCorrect) {
     btn.classList.add("bg-green-600", "border-green-500");
     score += question.score || 1;
   } else {
@@ -107,6 +117,7 @@ function handleAnswer(btn, index, question) {
     }
   }
 }
+
 
 function updateNextButton() {
   const nextBtn = document.getElementById("nextBtn");
@@ -138,13 +149,28 @@ function finishExam() {
 
   exam.results = exam.results || [];
 
-  exam.results.push({
+  const resultObj = {
     studentId: Number(student.id),
     score,
-    total: exam.totalScore,
-  });
+    submittedAt: new Date().toLocaleDateString(),
+    answers
+  };
 
+  exam.results.push(resultObj);
   localStorage.setItem("currentExam", JSON.stringify(exam));
+
+
+  const exams = StorageService.get("exams") || [];
+
+  const examIndex = exams.findIndex(
+    (e) => Number(e.id) === Number(exam.id)
+  );
+
+  if (examIndex !== -1) {
+    exams[examIndex].results = exams[examIndex].results || [];
+    exams[examIndex].results.push(resultObj);
+    StorageService.set("exams", exams);
+  }
 
 
   student.completedExams = student.completedExams || [];
@@ -153,10 +179,9 @@ function finishExam() {
     examName: exam.title,
     score,
     total: exam.totalScore,
-    date: new Date().toLocaleDateString(),
+    date: new Date().toLocaleDateString()
   });
 
- 
   if (student.assignedExams) {
     student.assignedExams = student.assignedExams.filter(
       (id) => Number(id) !== Number(exam.id)
@@ -167,6 +192,7 @@ function finishExam() {
 
   window.location.href = "../view/result.html";
 }
+
 
 
 initExam();
