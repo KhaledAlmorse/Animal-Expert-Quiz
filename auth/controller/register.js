@@ -60,10 +60,10 @@ class RegisterController {
     const student = this.getFormData();
     if (!student) return;
 
-    if (this.studentService.emailExists(student.email)) {
-      alert("This email is already registered. Please use another email.");
-      return;
-    }
+    // if (this.studentService.emailExists(student.email)) {
+    //   alert("This email is already registered. Please use another email.");
+    //   return;
+    // }
 
     this.studentService.addStudent(student);
     window.location.href = "../../student/view/student-profile.html";

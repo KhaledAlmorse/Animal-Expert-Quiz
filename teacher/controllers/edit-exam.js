@@ -127,6 +127,7 @@ addBtn.addEventListener("click", async () => {
     );
 
     totalScore += score;
+    
   }
 
   clearQuestionForm();
@@ -149,10 +150,17 @@ function renderQuestions() {
           </p>
         </div>
         <div>
-          <button onclick="editQuestion(${index})" class="text-blue-600 text-sm">
+          <button 
+            type="button"
+            onclick="editQuestion(${index})"
+            class="text-blue-600 text-sm">
             Edit
           </button>
-          <button onclick="removeQuestion(${index})" class="text-red-600 text-sm ml-2">
+
+          <button 
+            type="button"
+            onclick="removeQuestion(${index})"
+            class="text-red-600 text-sm ml-2">
             Remove
           </button>
         </div>
@@ -160,6 +168,7 @@ function renderQuestions() {
     `;
   });
 }
+
 
 function editQuestion(index) {
   const q = questions[index];

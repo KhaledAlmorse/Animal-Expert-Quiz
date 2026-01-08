@@ -84,6 +84,8 @@ document.querySelector("button[type='button']").addEventListener(
     const score = Number(getValue("questionScore"));
     const difficulty = getValue("difficulty");
     const correctAnswer = Number(getValue("correctAnswer"));
+    const questionsCount = Number(getValue("questionsCount"));
+
 
     const choices = [
       getValue("a"),
@@ -127,6 +129,11 @@ document.querySelector("button[type='button']").addEventListener(
 
     questions.push(question);
     totalScore += score;
+
+    if (questions.length == questionsCount) {
+      document.getElementById("addQuestionBtn").disabled = true;
+      alert("Reached the maximum number of questions for this exam.");
+    }
 
     renderQuestions();
     updateSummary();
