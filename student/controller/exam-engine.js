@@ -7,15 +7,16 @@ let selectedAnswer = null;
 let score = 0;
 let exam;
 let timer;
+let answers = [];
+
 
 async function initExam() {
   await StorageService.loadJSON("exams");
 
   const exams = StorageService.get("exams") || [];
-  const examId = parseInt(localStorage.getItem("currentExamId"));
+  const examId = Number(localStorage.getItem("currentExamId"));
 
-  exam = exams.find((e) => e.id === examId);
-
+  exam = exams.find((e) => Number(e.id) === examId);
   if (!exam) {
     alert("Exam not found!");
     return;
@@ -33,8 +34,29 @@ async function initExam() {
 function renderQuestion() {
   const question = exam.questions[currentQuestionIndex];
 
+  // Counter
+  document.getElementById("questionCounter").textContent =
+    `Question ${currentQuestionIndex + 1} of ${exam.questions.length}`;
+
+  // Difficulty
+  const diffEl = document.getElementById("questionDifficulty");
+  if (question.difficulty === "easy") {
+    diffEl.textContent = "Difficulty: Easy";
+    diffEl.className = "text-sm font-semibold text-green-400";
+  } else if (question.difficulty === "medium") {
+    diffEl.textContent = "Difficulty: Medium";
+    diffEl.className = "text-sm font-semibold text-yellow-400";
+  } else if (question.difficulty === "hard") {
+    diffEl.textContent = "Difficulty: Hard";
+    diffEl.className = "text-sm font-semibold text-red-400";
+  } else {
+    diffEl.textContent = "";
+  }
+
+  // Question text
   document.getElementById("questionText").textContent = question.text;
 
+  
   const imageContainer = document.getElementById("imageContainer");
   const questionImage = document.getElementById("questionImage");
 
@@ -45,22 +67,12 @@ function renderQuestion() {
     imageContainer.classList.add("hidden");
   }
 
+  // Options
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
   selectedAnswer = null;
 
-  const choices = question.choices || [];
-
-  if (choices.length === 0) {
-    optionsDiv.innerHTML =
-      "<p class='text-gray-400'>No choices available for this question</p>";
-    document.getElementById("nextBtn").disabled = true;
-    return;
-  } else {
-    document.getElementById("nextBtn").disabled = false;
-  }
-
-  choices.forEach((choice, index) => {
+  question.choices.forEach((choice, index) => {
     const btn = document.createElement("button");
     btn.className =
       "w-full flex items-center gap-4 rounded-xl border border-gray-600 bg-gray-800 px-4 py-4 text-left transition hover:bg-gray-700";
@@ -73,7 +85,6 @@ function renderQuestion() {
     `;
 
     btn.onclick = () => handleAnswer(btn, index, question);
-
     optionsDiv.appendChild(btn);
   });
 
@@ -86,19 +97,27 @@ function handleAnswer(btn, index, question) {
   selectedAnswer = index;
   question.selectedAnswer = index;
 
-  const questionScore = question.score || 1;
+  const isCorrect = index === question.correctAnswer;
 
-  if (index === question.correctAnswer) {
+  answers.push({
+    questionId: question.id,
+    selected: index,
+    correct: isCorrect
+  });
+
+  if (isCorrect) {
     btn.classList.add("bg-green-600", "border-green-500");
-    score += questionScore;
+    score += question.score || 1;
   } else {
     btn.classList.add("bg-red-600", "border-red-500");
     const correctBtn =
       document.getElementById("options").children[question.correctAnswer];
-    if (correctBtn)
+    if (correctBtn) {
       correctBtn.classList.add("bg-green-600", "border-green-500");
+    }
   }
 }
+
 
 function updateNextButton() {
   const nextBtn = document.getElementById("nextBtn");
@@ -115,12 +134,9 @@ document.getElementById("nextBtn").onclick = () => {
   }
 
   currentQuestionIndex++;
-
-  if (currentQuestionIndex < exam.questions.length) {
-    renderQuestion();
-  } else {
-    finishExam();
-  }
+  currentQuestionIndex < exam.questions.length
+    ? renderQuestion()
+    : finishExam();
 };
 
 function finishExam() {
@@ -128,55 +144,55 @@ function finishExam() {
   localStorage.removeItem("remainingTime");
 
   const student = JSON.parse(localStorage.getItem("currentStudent"));
-  const studentId = student?.id || null;
+  if (!student) return;
 
-  const answers = exam.questions.map((q) => ({
-    questionId: q.id,
-    selected: q.selectedAnswer ?? null,
-    correct: q.selectedAnswer === q.correctAnswer,
-  }));
-
-  const examResult = {
-    studentId,
-    score,
-    submittedAt: new Date().toLocaleDateString(),
-    answers,
-  };
 
   exam.results = exam.results || [];
-  exam.results.push(examResult);
 
-  let exams = StorageService.get("exams") || [];
-  const examIndex = exams.findIndex((e) => e.id === exam.id);
+  const resultObj = {
+    studentId: Number(student.id),
+    score,
+    submittedAt: new Date().toLocaleDateString(),
+    answers
+  };
+
+  exam.results.push(resultObj);
+  localStorage.setItem("currentExam", JSON.stringify(exam));
+
+
+  const exams = StorageService.get("exams") || [];
+
+  const examIndex = exams.findIndex(
+    (e) => Number(e.id) === Number(exam.id)
+  );
+
   if (examIndex !== -1) {
-    exams[examIndex] = exam;
+    exams[examIndex].results = exams[examIndex].results || [];
+    exams[examIndex].results.push(resultObj);
     StorageService.set("exams", exams);
   }
 
-  localStorage.setItem("currentExam", JSON.stringify(exam));
 
-  if (student) {
-    student.completedExams = student.completedExams || [];
-    student.completedExams.push({
-      examId: exam.id,
-      examName: exam.title,
-      score,
-      total: exam.totalScore,
-      date: new Date().toLocaleDateString(),
-    });
+  student.completedExams = student.completedExams || [];
+  student.completedExams.push({
+    examId: exam.id,
+    examName: exam.title,
+    score,
+    total: exam.totalScore,
+    date: new Date().toLocaleDateString()
+  });
 
-    if (student.assignedExams) {
-      student.assignedExams = student.assignedExams.filter(
-        (id) => id !== exam.id
-      );
-    }
-
-    localStorage.setItem("currentStudent", JSON.stringify(student));
+  if (student.assignedExams) {
+    student.assignedExams = student.assignedExams.filter(
+      (id) => Number(id) !== Number(exam.id)
+    );
   }
 
-  console.log("Exams with results:", JSON.parse(localStorage.getItem("exams")));
+  localStorage.setItem("currentStudent", JSON.stringify(student));
 
   window.location.href = "../view/result.html";
 }
+
+
 
 initExam();

@@ -168,7 +168,7 @@
         "correctAnswer": 2
       }
     ],
-    "assignedStudents": [1],
+    "assignedStudents": [],
     "results": []
   },
   {
@@ -314,7 +314,7 @@
         "correctAnswer": 0
       }
     ],
-    "assignedStudents": [1],
+    "assignedStudents": [],
     "results": []
   },
   {
@@ -461,7 +461,7 @@
         "correctAnswer": 0
       }
     ],
-    "assignedStudents": [1],
+    "assignedStudents": [],
     "results": []
   }
 ]

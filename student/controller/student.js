@@ -59,30 +59,21 @@ function renderUpcomingExams() {
 function renderCompletedExams() {
   completedExamsDiv.innerHTML = "";
 
-  if (student.completedExams?.length) {
-    student.completedExams.forEach((res) => {
-      const exam = exams.find((e) => e.id === res.examId);
-      if (!exam) return;
-
-      const card = document.createElement("div");
-      card.className =
-        "bg-green-500/10 p-4 rounded-xl flex justify-between items-center mb-2 items-center";
-
-      card.innerHTML = `
-  <button
-    class="view-result-btn w-full rounded-md border border-green-500 text-green-400 py-2 font-semibold hover:bg-green-500 hover:text-white transition"
-    data-exam-id="${exam.id}"
-  >
-    View Result
-  </button>
-`;
-
-      completedExamsDiv.appendChild(card);
-    });
-  } else {
-    completedExamsDiv.innerHTML = `<p class='text-gray-400 p-4'>No completed exams yet</p>`;
+  if (!student.completedExams || student.completedExams.length === 0) {
+    completedExamsDiv.innerHTML =
+      `<p class='text-gray-400 p-4'>No completed exams yet</p>`;
+    return;
   }
+
+  completedExamsDiv.innerHTML = `
+    <button
+      class="view-results-btn w-full rounded-md border border-green-500 text-green-400 py-2 font-semibold hover:bg-green-500 hover:text-white transition"
+    >
+      View Results
+    </button>
+  `;
 }
+
 
 upcomingExamsDiv.addEventListener("click", (e) => {
   if (e.target.classList.contains("start-exam-btn")) {
@@ -92,21 +83,11 @@ upcomingExamsDiv.addEventListener("click", (e) => {
 });
 
 completedExamsDiv.addEventListener("click", (e) => {
-  if (e.target.classList.contains("view-result-btn")) {
-    const examId = parseInt(e.target.dataset.examId);
-    const exam = exams.find((e) => e.id === examId);
-    const result = exam.results?.find((r) => r.studentId === student.id);
-
-    if (!result) {
-      alert("No result found for this exam.");
-      return;
-    }
-
-    localStorage.setItem("currentExam", JSON.stringify(exam));
-    localStorage.setItem("examResult", JSON.stringify(result));
+  if (e.target.classList.contains("view-results-btn")) {
     window.location.href = "../view/completed-exams.html";
   }
 });
+
 
 logoutBtn.addEventListener("click", () => {
   localStorage.removeItem("currentStudent");
